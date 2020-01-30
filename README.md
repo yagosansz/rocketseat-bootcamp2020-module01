@@ -1,15 +1,23 @@
+<h1 align="center">
+    <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/bootcamp-header.png" width="200px" />
+</h1>
+
 # rocketseat-bootcamp2020-module01
 Understanding Node.JS - Basic Concepts
 
 # What is this project about?
 This is project is about practicing the basic concepts behind Node.JS that 
-were learned during the first module of the GoStack 10 Bootcamp.
+were learned during the first module of GoStack 10 - Bootcamp.
 
 ## How to run this project?
-  `yarn dev`
+  - Install dependencies:
+    - `yarn`
+  - Start the back-end:
+    - `yarn dev`
 
-  - It's possible to test the **GET** methods through the browser, but the other
+  - It's possible to test the **GET** methods through the browser, but for the other
   methods I recommend using applications such as **Insomnia** or **Postman**.
+  
 ## Logbook
 ### Day 01 - 2020/01/27
   * Basic Concepts of a REST API
@@ -94,5 +102,30 @@ were learned during the first module of the GoStack 10 Bootcamp.
       ```
 
   - Middlewares (Global and Local)
+    - They are a fundamental part of every Express application!
+    - It's a function that gets `request` and `response` as parameters (among others, e.g.: `next`)
+    and transforms/check data.
+    
+    1. **Global**
+      - It's always invoked, no matter what route is being triggered.
+      ```javascript
+      server.use((req, res) => {
+        console.time('Request');
+        console.log(`Method: ${req.method}; URL: ${req.url}`);
+        next();
+        console.timeEnd('Request');
+      });
+      ```
+    2. **Local**
+      - It's applied directly to routes
+    
+    - You can add as many middlewares as you feel necessary.
+    - Middlewares can change the `request` and `response` parameters.
 
   - Debugging the application
+    - Learned how to use breakpoints in VSCode.
+    - Understand variables' values and what is happening behind the scenes in the application.
+
+  ---
+
+Made with ♥ by Yago!
